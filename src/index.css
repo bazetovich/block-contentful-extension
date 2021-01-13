@@ -20,4 +20,5 @@ div {
 
 #root > .dummy {
   color: #fff;
+  font-size: 4px;
 }

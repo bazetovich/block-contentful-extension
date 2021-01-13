@@ -30,6 +30,7 @@ interface Props {
 const App: FC<Props> = ({ sdk }) => {
   const [value, setValue] = useState<ExtensionValue>(formDefaultValue(sdk.field.getValue()));
   const [domChange, triggerDomChange] = useState(0);
+  const [expanded, toggleExpanded] = useState(false);
 
   // effects
 
@@ -113,17 +114,25 @@ const App: FC<Props> = ({ sdk }) => {
     });
   };
 
+  const handleExpand = () => {
+    setTimeout(() => {
+      toggleExpanded(true);
+      triggerDomChange(domChange + 1);
+    }, 500);
+  };
+
   const handleCollapse = () => {
     setTimeout(() => {
+      toggleExpanded(false);
       triggerDomChange(domChange + 1);
-    }, 1000);
+    }, 500);
   };
-  console.log(domChange);
+
   return (
     <>
       <Accordion className="root-accordion">
-        <AccordionItem onExpand={handleCollapse} onCollapse={handleCollapse} title="Settings">
-          {domChange && (
+        <AccordionItem onExpand={handleExpand} onCollapse={handleCollapse} title="Settings">
+          {expanded && (
             <>
               <BreakpointInput
                 label="Height"

@@ -11,5 +11,6 @@ module.exports = {
     'react/prop-types': 0,
     '@typescript-eslint/no-explicit-any': 0,
     'react-hooks/exhaustive-deps': 0,
+    '@typescript-eslint/ban-ts-comment': 0,
   },
 };
