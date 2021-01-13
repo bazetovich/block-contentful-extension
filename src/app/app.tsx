@@ -35,7 +35,7 @@ const App: FC<Props> = ({ sdk }) => {
 
   useEffect(() => {
     sdk.window.startAutoResizer();
-  });
+  }, []);
 
   useEffect(() => {
     sdk.field.setValue(value);
@@ -115,6 +115,10 @@ const App: FC<Props> = ({ sdk }) => {
 
   const handleCollapse = () => {
     triggerDomChange(!domChange);
+
+    setTimeout(() => {
+      sdk.window.updateHeight();
+    }, 1000);
   };
 
   return (
