@@ -3,16 +3,15 @@ import Checkbox from '@contentful/forma-36-react-components/dist/components/Chec
 import { ControlBase } from '../../../shared';
 
 interface Props extends ControlBase<boolean> {
-  labelText?: string;
   id?: string;
 }
 
-const CheckboxWrap: FC<Props> = ({ id, labelText, value = false, onChange }) => {
+const CheckboxWrap: FC<Props> = ({ id, value = false, onChange }) => {
   const handleChanhe = (e: SyntheticEvent<HTMLInputElement>) => {
     onChange(e.currentTarget.checked);
   };
 
-  return <Checkbox id={id} labelText={labelText} checked={value} onChange={handleChanhe} />;
+  return <Checkbox id={id} labelText="" checked={value} onChange={handleChanhe} />;
 };
 
 export default CheckboxWrap;

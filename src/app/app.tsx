@@ -29,8 +29,8 @@ interface Props {
 
 const App: FC<Props> = ({ sdk }) => {
   const [value, setValue] = useState<ExtensionValue>(formDefaultValue(sdk.field.getValue()));
-  const [domChange, triggerDomChange] = useState(0);
   const [expanded, toggleExpanded] = useState(false);
+  const [domChange, triggerDomChange] = useState(0);
 
   // effects
 
@@ -115,17 +115,19 @@ const App: FC<Props> = ({ sdk }) => {
   };
 
   const handleExpand = () => {
+    toggleExpanded(true);
+    triggerDomChange(domChange + 1);
     setTimeout(() => {
-      toggleExpanded(true);
-      triggerDomChange(domChange + 1);
-    }, 500);
+      triggerDomChange(domChange + 2);
+    }, 100);
   };
 
   const handleCollapse = () => {
+    toggleExpanded(false);
+    triggerDomChange(domChange + 1);
     setTimeout(() => {
-      toggleExpanded(false);
-      triggerDomChange(domChange + 1);
-    }, 500);
+      triggerDomChange(domChange + 2);
+    }, 100);
   };
 
   return (
