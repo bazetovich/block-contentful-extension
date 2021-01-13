@@ -115,7 +115,7 @@ const App: FC<Props> = ({ sdk }) => {
 
   const handleCollapse = () => {
     triggerDomChange(!domChange);
-    sdk.window.updateHeight(1); // trigger update
+    sdk.window.updateHeight();
   };
 
   return (
