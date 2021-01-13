@@ -114,17 +114,15 @@ const App: FC<Props> = ({ sdk }) => {
   };
 
   const handleCollapse = () => {
-    triggerDomChange(!domChange);
-
     setTimeout(() => {
-      sdk.window.updateHeight();
+      triggerDomChange(!domChange);
     }, 1000);
   };
 
   return (
     <>
       <Accordion className="root-accordion">
-        <AccordionItem onExpand={handleCollapse} onCollapse={handleCollapse} title="Settings">
+        <AccordionItem onCollapse={handleCollapse} title="Settings">
           {domChange && (
             <>
               <BreakpointInput
