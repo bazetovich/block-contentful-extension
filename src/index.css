@@ -1,0 +1,23 @@
+html,
+body,
+div {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+.root-accordion > li > div {
+  overflow-y: auto;
+}
+
+.root-accordion > li > h2 > button {
+  color: #606c7c;
+  font-size: 14px;
+}
+
+#root > .dummy {
+  color: #fff;
+}

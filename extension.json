@@ -1,0 +1,8 @@
+{
+  "id": "generic-block",
+  "name": "generic-block",
+  "srcdoc": "./build/index.html",
+  "fieldTypes": [
+    "Object"
+  ]
+}

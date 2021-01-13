@@ -1,0 +1,21 @@
+.breakpoint-input {
+  padding-top: 0.5rem;
+}
+
+.breakpoint-input h3 button {
+  color: #606c7c;
+  font-size: 14px;
+}
+
+.breakpoint-input .item-wrap {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.breakpoint-input .item {
+  margin-right: 1rem;
+}
+
+.breakpoint-input .item label {
+  color: #6b7888;
+}
