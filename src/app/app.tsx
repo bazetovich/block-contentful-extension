@@ -29,7 +29,7 @@ interface Props {
 
 const App: FC<Props> = ({ sdk }) => {
   const [value, setValue] = useState<ExtensionValue>(formDefaultValue(sdk.field.getValue()));
-  const [domChange, triggerDomChange] = useState(false);
+  const [domChange, triggerDomChange] = useState(0);
 
   // effects
 
@@ -115,14 +115,14 @@ const App: FC<Props> = ({ sdk }) => {
 
   const handleCollapse = () => {
     setTimeout(() => {
-      triggerDomChange(!domChange);
+      triggerDomChange(domChange + 1);
     }, 1000);
   };
-
+  console.log(domChange);
   return (
     <>
       <Accordion className="root-accordion">
-        <AccordionItem onCollapse={handleCollapse} title="Settings">
+        <AccordionItem onExpand={handleCollapse} onCollapse={handleCollapse} title="Settings">
           {domChange && (
             <>
               <BreakpointInput
@@ -189,7 +189,7 @@ const App: FC<Props> = ({ sdk }) => {
           )}
         </AccordionItem>
       </Accordion>
-      {domChange && <span className="dummy">.</span>}
+      <span className="dummy">{domChange}</span>
     </>
   );
 };
