@@ -183,7 +183,7 @@ const App: FC<Props> = ({ sdk }) => {
                 label="Grow"
                 value={value.grow}
                 onChange={handleGrowChange}
-                Control={(props) => <Checkbox {...props} labelText="Yes" />}
+                Control={Checkbox}
               />
             </>
           )}
