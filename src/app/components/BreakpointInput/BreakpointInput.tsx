@@ -1,18 +1,19 @@
 import React, { FC } from 'react';
 import Accordion from '@contentful/forma-36-react-components/dist/components/Accordion';
 import AccordionItem from '@contentful/forma-36-react-components/dist/components/Accordion/AccordionItem';
+import FormLabel from '@contentful/forma-36-react-components/dist/components/FormLabel';
 import { BreakPoints, BreakPointValue } from '../../../shared';
 import './BreakpointInput.css';
 import { formId } from './BreakPointInput.utils';
 
 interface Props {
   label: string;
-  value: BreakPointValue<any>;
+  value: BreakPointValue<any> | undefined;
   Control: React.FC<any>;
   onChange: (val: BreakPointValue<any>) => void;
 }
 
-const BreakpointInput: FC<Props> = ({ label, value, Control, onChange }) => {
+const BreakpointInput: FC<Props> = ({ label, value = {}, Control, onChange }) => {
   const createChaneHandler = (br: BreakPoints) => {
     return (v: any) => {
       onChange({
@@ -33,7 +34,7 @@ const BreakpointInput: FC<Props> = ({ label, value, Control, onChange }) => {
         <AccordionItem titleElement="h3" title={label}>
           <div className="item-wrap">
             <div className="item">
-              <label htmlFor={mobileId}>Mobile</label>
+              <FormLabel htmlFor={mobileId}>Mobile</FormLabel>
               <Control
                 id={mobileId}
                 value={value[BreakPoints.Mobile]}
@@ -41,7 +42,7 @@ const BreakpointInput: FC<Props> = ({ label, value, Control, onChange }) => {
               />
             </div>
             <div className="item">
-              <label htmlFor={tabletId}>Tablet</label>
+              <FormLabel htmlFor={tabletId}>Tablet</FormLabel>
               <Control
                 id={tabletId}
                 value={value[BreakPoints.Tablet]}
@@ -49,7 +50,7 @@ const BreakpointInput: FC<Props> = ({ label, value, Control, onChange }) => {
               />
             </div>
             <div className="item">
-              <label htmlFor={desktopId}>Desktop</label>
+              <FormLabel htmlFor={desktopId}>Desktop</FormLabel>
               <Control
                 id={desktopId}
                 value={value[BreakPoints.Desktop]}
@@ -57,7 +58,7 @@ const BreakpointInput: FC<Props> = ({ label, value, Control, onChange }) => {
               />
             </div>
             <div className="item">
-              <label htmlFor={widescreenId}>Widescreen</label>
+              <FormLabel htmlFor={widescreenId}>Widescreen</FormLabel>
               <Control
                 id={widescreenId}
                 value={value[BreakPoints.WideScreen]}

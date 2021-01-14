@@ -1,14 +1,17 @@
 export interface ExtensionValue {
-  height: BreakPointValue<string>;
-  width: BreakPointValue<string>;
-  paddingVertical: BreakPointValue<string>;
-  paddingHorizontal: BreakPointValue<string>;
-  marginBottom: BreakPointValue<string>;
-  innerContainerType: BreakPointValue<ContainerTypes>;
-  align: BreakPointValue<AlignmentTypes>;
-  verticalAlign: BreakPointValue<VerticalAlignmentTypes>;
-  fontSize: BreakPointValue<FontSizes>;
-  grow: BreakPointValue<boolean>;
+  [ExtensionValueKeys.Height]?: BreakPointValue<string>;
+  [ExtensionValueKeys.Width]?: BreakPointValue<string>;
+  [ExtensionValueKeys.PaddingVertical]?: BreakPointValue<string>;
+  [ExtensionValueKeys.PaddingHorizontal]?: BreakPointValue<string>;
+  [ExtensionValueKeys.MarginBottom]?: BreakPointValue<string>;
+  [ExtensionValueKeys.InnerContainerType]?: BreakPointValue<ContainerTypes>;
+  [ExtensionValueKeys.Align]?: BreakPointValue<AlignmentTypes>;
+  [ExtensionValueKeys.VerticalAlign]?: BreakPointValue<VerticalAlignmentTypes>;
+  [ExtensionValueKeys.FontSize]?: BreakPointValue<FontSizes>;
+  [ExtensionValueKeys.Grow]?: BreakPointValue<boolean>;
+  [ExtensionValueKeys.BgPosition]?: BreakPointValue<BgPositions>;
+  [ExtensionValueKeys.BgColor]?: BreakPointValue<string>;
+  [ExtensionValueKeys.Color]?: BreakPointValue<string>;
 }
 
 export interface BreakPointValue<V> {
@@ -16,6 +19,22 @@ export interface BreakPointValue<V> {
   [BreakPoints.Tablet]?: V;
   [BreakPoints.Desktop]?: V;
   [BreakPoints.WideScreen]?: V;
+}
+
+export enum ExtensionValueKeys {
+  Height = 'height',
+  Width = 'width',
+  PaddingVertical = 'paddingVertical',
+  PaddingHorizontal = 'paddingHorizontal',
+  MarginBottom = 'marginBottom',
+  InnerContainerType = 'innerContainerType',
+  Align = 'align',
+  VerticalAlign = 'verticalAlign',
+  FontSize = 'fontSize',
+  Grow = 'grow',
+  BgPosition = 'bgPosition',
+  BgColor = 'bgColor',
+  Color = 'color',
 }
 
 export enum BreakPoints {
@@ -42,7 +61,6 @@ export enum FontSizes {
   Heading3 = 'heading3',
   Heading4 = 'heading4',
   Heading5 = 'heading5',
-  Heading6 = 'heading6',
   Body = 'body',
 }
 
@@ -50,6 +68,18 @@ export enum VerticalAlignmentTypes {
   Top = 'top',
   Center = 'center',
   Bottom = 'bottom',
+}
+
+export enum BgPositions {
+  TopLeft = 'topLeft',
+  TopCenter = 'topCenter',
+  TopRight = 'topRight',
+  RightCenter = 'rightCenter',
+  BottomRight = 'bottomRight',
+  BottomCenter = 'bottomCenter',
+  BottomLeft = 'bottomLeft',
+  LeftCenter = 'leftCenter',
+  Center = 'Center',
 }
 
 export interface ControlBase<V> {

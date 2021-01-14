@@ -5,82 +5,73 @@ import {
   AlignmentTypes,
   VerticalAlignmentTypes,
   FontSizes,
+  BgPositions,
+  ExtensionValueKeys,
 } from '../shared';
 
-const DEFAULT_VALUE: ExtensionValue = {
-  height: {},
-  width: {},
-  paddingHorizontal: {},
-  paddingVertical: {},
-  marginBottom: {},
-  innerContainerType: {
+export const DEFAULT_VALUE: ExtensionValue = {
+  [ExtensionValueKeys.Height]: {},
+  [ExtensionValueKeys.Width]: {},
+  [ExtensionValueKeys.PaddingHorizontal]: {},
+  [ExtensionValueKeys.PaddingVertical]: {},
+  [ExtensionValueKeys.MarginBottom]: {},
+  [ExtensionValueKeys.InnerContainerType]: {
     [BreakPoints.Mobile]: ContainerTypes.FullWidth,
     [BreakPoints.Tablet]: ContainerTypes.FullWidth,
     [BreakPoints.Desktop]: ContainerTypes.FullWidth,
     [BreakPoints.WideScreen]: ContainerTypes.FullWidth,
   },
-  align: {
+  [ExtensionValueKeys.Align]: {
     [BreakPoints.Mobile]: AlignmentTypes.Center,
     [BreakPoints.Tablet]: AlignmentTypes.Center,
     [BreakPoints.Desktop]: AlignmentTypes.Center,
     [BreakPoints.WideScreen]: AlignmentTypes.Center,
   },
-  verticalAlign: {
+  [ExtensionValueKeys.VerticalAlign]: {
     [BreakPoints.Mobile]: VerticalAlignmentTypes.Top,
     [BreakPoints.Tablet]: VerticalAlignmentTypes.Top,
     [BreakPoints.Desktop]: VerticalAlignmentTypes.Top,
     [BreakPoints.WideScreen]: VerticalAlignmentTypes.Top,
   },
-  fontSize: {
+  [ExtensionValueKeys.FontSize]: {
     [BreakPoints.Mobile]: FontSizes.Body,
     [BreakPoints.Tablet]: FontSizes.Body,
     [BreakPoints.Desktop]: FontSizes.Body,
     [BreakPoints.WideScreen]: FontSizes.Body,
   },
-  grow: {
+  [ExtensionValueKeys.Grow]: {
     [BreakPoints.Mobile]: false,
     [BreakPoints.Tablet]: false,
     [BreakPoints.Desktop]: false,
     [BreakPoints.WideScreen]: false,
   },
+  [ExtensionValueKeys.BgPosition]: {
+    [BreakPoints.Mobile]: BgPositions.Center,
+    [BreakPoints.Tablet]: BgPositions.Center,
+    [BreakPoints.Desktop]: BgPositions.Center,
+    [BreakPoints.WideScreen]: BgPositions.Center,
+  },
+  [ExtensionValueKeys.BgColor]: {},
+  [ExtensionValueKeys.Color]: {},
 };
 
 export const formDefaultValue = (val?: ExtensionValue) => {
   if (!val) {
-    return DEFAULT_VALUE;
-  }
-
-  if (!val.innerContainerType) {
-    val.innerContainerType = DEFAULT_VALUE.innerContainerType;
-  }
-
-  if (!val.align) {
-    val.align = DEFAULT_VALUE.align;
-  }
-
-  if (!val.verticalAlign) {
-    val.verticalAlign = DEFAULT_VALUE.verticalAlign;
-  }
-
-  if (!val.fontSize) {
-    val.fontSize = DEFAULT_VALUE.fontSize;
-  }
-
-  if (!val.paddingHorizontal) {
-    val.paddingHorizontal = {};
-  }
-
-  if (!val.paddingVertical) {
-    val.paddingVertical = {};
-  }
-
-  if (!val.marginBottom) {
-    val.marginBottom = {};
-  }
-
-  if (!val.grow) {
-    val.grow = DEFAULT_VALUE.grow;
+    return {};
   }
 
   return val;
+};
+
+const HEIGHT_RATIO = 54;
+const DEFAULT_HEIGHT = 184;
+
+export const getPanelHeight = (rowNumber: number) => {
+  const res = rowNumber * 63 + HEIGHT_RATIO;
+
+  if (rowNumber === 0 || res < DEFAULT_HEIGHT) {
+    return DEFAULT_HEIGHT;
+  }
+
+  return res;
 };

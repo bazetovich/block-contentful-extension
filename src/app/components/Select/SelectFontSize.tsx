@@ -24,10 +24,6 @@ const list: ListItem<FontSizes>[] = [
     value: FontSizes.Heading5,
   },
   {
-    label: 'Heading 6',
-    value: FontSizes.Heading6,
-  },
-  {
     label: 'Body',
     value: FontSizes.Body,
   },

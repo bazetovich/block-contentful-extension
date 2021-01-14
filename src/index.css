@@ -18,7 +18,15 @@ div {
   font-size: 14px;
 }
 
-#root > .dummy {
+#root .dummy {
   color: #fff;
   font-size: 4px;
+}
+
+.empty-field {
+  padding-top: 56px;
+  padding-bottom: 56px;
+  color: #606c7c;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif,
+    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
 }
