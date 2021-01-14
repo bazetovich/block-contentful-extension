@@ -1,6 +1,6 @@
 {
-  "id": "generic-block-1",
-  "name": "generic-block-1",
+  "id": "generic-block",
+  "name": "generic-block",
   "srcdoc": "./build/index.html",
   "fieldTypes": ["Object"]
 }
