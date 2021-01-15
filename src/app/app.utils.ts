@@ -7,6 +7,7 @@ import {
   FontSizes,
   BgPositions,
   ExtensionValueKeys,
+  BgSizes,
 } from '../shared';
 
 export const DEFAULT_VALUE: ExtensionValue = {
@@ -50,6 +51,12 @@ export const DEFAULT_VALUE: ExtensionValue = {
     [BreakPoints.Tablet]: BgPositions.Center,
     [BreakPoints.Desktop]: BgPositions.Center,
     [BreakPoints.WideScreen]: BgPositions.Center,
+  },
+  [ExtensionValueKeys.BgSize]: {
+    [BreakPoints.Mobile]: BgSizes.Cover,
+    [BreakPoints.Tablet]: BgSizes.Cover,
+    [BreakPoints.Desktop]: BgSizes.Cover,
+    [BreakPoints.WideScreen]: BgSizes.Cover,
   },
   [ExtensionValueKeys.BgColor]: {},
   [ExtensionValueKeys.Color]: {},

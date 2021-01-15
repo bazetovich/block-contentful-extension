@@ -11,6 +11,7 @@ export interface ExtensionValue {
   [ExtensionValueKeys.Grow]?: BreakPointValue<boolean>;
   [ExtensionValueKeys.BgPosition]?: BreakPointValue<BgPositions>;
   [ExtensionValueKeys.BgColor]?: BreakPointValue<string>;
+  [ExtensionValueKeys.BgSize]?: BreakPointValue<BgSizes>;
   [ExtensionValueKeys.Color]?: BreakPointValue<string>;
 }
 
@@ -34,6 +35,7 @@ export enum ExtensionValueKeys {
   Grow = 'grow',
   BgPosition = 'bgPosition',
   BgColor = 'bgColor',
+  BgSize = 'bgSize',
   Color = 'color',
 }
 
@@ -80,6 +82,13 @@ export enum BgPositions {
   BottomLeft = 'bottomLeft',
   LeftCenter = 'leftCenter',
   Center = 'Center',
+}
+
+export enum BgSizes {
+  Auto = 'auto',
+  Initial = 'initial',
+  Cover = 'cover',
+  Contain = 'contain',
 }
 
 export interface ControlBase<V> {

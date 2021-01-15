@@ -16,10 +16,12 @@ import {
   Checkbox,
   EmptyField,
   PropertyPicker,
+  SelectBgSize,
 } from './components';
 import {
   AlignmentTypes,
   BgPositions,
+  BgSizes,
   BreakPointValue,
   ContainerTypes,
   ExtensionValue,
@@ -147,6 +149,13 @@ const App: FC<Props> = ({ sdk }) => {
     });
   };
 
+  const handleBgSizeChange = (val: BreakPointValue<BgSizes>) => {
+    setValue({
+      ...value,
+      bgSize: val,
+    });
+  };
+
   const handleGrowChange = (val: BreakPointValue<boolean>) => {
     setValue({
       ...value,
@@ -173,6 +182,9 @@ const App: FC<Props> = ({ sdk }) => {
       triggerDomChange(domChange + 2);
       updatePanelHeight();
     }, 100);
+    setTimeout(() => {
+      updatePanelHeight();
+    }, 200);
   };
 
   const handleCollapse = () => {
@@ -310,6 +322,16 @@ const App: FC<Props> = ({ sdk }) => {
                         value={value.bgColor}
                         onChange={handleBgColorChange}
                         Control={Input}
+                      />
+                    );
+                  case ExtensionValueKeys.BgSize:
+                    return (
+                      <BreakpointInput
+                        key={key}
+                        label="Background size"
+                        value={value.bgSize}
+                        onChange={handleBgSizeChange}
+                        Control={SelectBgSize}
                       />
                     );
                   case ExtensionValueKeys.Grow:

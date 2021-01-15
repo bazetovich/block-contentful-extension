@@ -4,6 +4,7 @@ export { default as Select } from './Select/Select';
 export { default as SelectContainerType } from './Select/SelectContainerType';
 export { default as SelectAlignmentType } from './Select/SelectAlignmentType';
 export { default as SelectBgPosition } from './Select/SelectBgPosition';
+export { default as SelectBgSize } from './Select/SelectBgSize';
 export { default as SelectVerticalAlignmentType } from './Select/SelectVerticalAlignment';
 export { default as SelectFontSize } from './Select/SelectFontSize';
 export { default as Checkbox } from './Checkbox/Checkbox';

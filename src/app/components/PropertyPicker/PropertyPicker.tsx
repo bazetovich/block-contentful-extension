@@ -20,6 +20,7 @@ const list = [
   ExtensionValueKeys.FontSize,
   ExtensionValueKeys.BgPosition,
   ExtensionValueKeys.BgColor,
+  ExtensionValueKeys.BgSize,
   ExtensionValueKeys.Grow,
 ];
 
